@@ -35,19 +35,21 @@ final class ViewController: UIViewController {
         filterSelecter.rx.value
             .skip(1)
             .subscribe(onNext: { [weak self] index in
-                let type = MosaicType(isValid: true, filter: filterCase[index])
-                self?.mainImageView.layer.mosaicType = type
-                self?.nameLabel.layer.mosaicType = type
-                self?.mainTextView.layer.mosaicType = type
+                guard let self = self else { return }
+                let type = MosaicType(isValid: true, filter: filterCase[index], scale: CGFloat(self.scaleChanger.value))
+                self.mainImageView.layer.mosaicType = type
+                self.nameLabel.layer.mosaicType = type
+                self.mainTextView.layer.mosaicType = type
             })
             .disposed(by: bag)
         scaleChanger.rx.value
             .skip(1)
             .subscribe(onNext: { [weak self] value in
-                let type = MosaicType(isValid: true, scale: CGFloat(value))
-                self?.mainImageView.layer.mosaicType = type
-                self?.nameLabel.layer.mosaicType = type
-                self?.mainTextView.layer.mosaicType = type
+                guard let self = self else { return }
+                let type = MosaicType(isValid: true, filter: filterCase[self.filterSelecter.selectedSegmentIndex],scale: CGFloat(value))
+                self.mainImageView.layer.mosaicType = type
+                self.nameLabel.layer.mosaicType = type
+                self.mainTextView.layer.mosaicType = type
             })
             .disposed(by: bag)
     }
