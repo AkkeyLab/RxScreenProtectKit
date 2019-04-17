@@ -16,10 +16,15 @@ public protocol Mosaicable {
 
 public extension Mosaicable {
     var isScreenRecord: Observable<Bool> {
-        return NotificationCenter
-            .default
-            .rx
-            .notification(UIScreen.capturedDidChangeNotification, object: nil)
+        return Observable.of(
+            NotificationCenter.default.rx
+                .notification(UIScreen.capturedDidChangeNotification),
+            NotificationCenter.default.rx
+                .notification(UIApplication.willEnterForegroundNotification),
+            NotificationCenter.default.rx
+                .notification(UIApplication.didEnterBackgroundNotification)
+        )
+            .merge()
             .map { _ in UIScreen.main.isCaptured }
     }
 }
