@@ -18,7 +18,7 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         isScreenRecord
-            .bind(to: mainImageView.layer.isMosaic)
+            .bind(to: mainImageView.layer.rx.isMosaic)
             .disposed(by: bag)
     }
 }

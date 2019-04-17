@@ -8,17 +8,18 @@
 
 import QuartzCore
 import RxCocoa
+import RxSwift
 
-public extension CALayer {
-    private func attachMosaic(_ isMosaic: Bool) {
-        minificationFilter = isMosaic ? .trilinear : .linear
-        rasterizationScale = isMosaic ? 0.1 : 1.0
-        shouldRasterize = isMosaic
+public extension Reactive where Base: CALayer {
+    func attachMosaic(_ isMosaic: Bool) {
+        base.minificationFilter = isMosaic ? .trilinear : .linear
+        base.rasterizationScale = isMosaic ? 0.1 : 1.0
+        base.shouldRasterize = isMosaic
     }
 
     var isMosaic: Binder<Bool> {
-        return Binder(self) { (layer, isMosaic: Bool) in
-            layer.attachMosaic(isMosaic)
+        return Binder(self.base) { (layer, mosaic: Bool) in
+            layer.rx.attachMosaic(mosaic)
         }
     }
 }
