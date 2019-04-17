@@ -13,12 +13,20 @@ import UIKit
 final class ViewController: UIViewController {
     // https://www.pakutaso.com
     @IBOutlet private weak var mainImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var mainTextView: UITextView!
     private let bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         isScreenRecord
             .bind(to: mainImageView.layer.rx.isMosaic)
+            .disposed(by: bag)
+        isScreenRecord
+            .bind(to: nameLabel.layer.rx.isMosaic)
+            .disposed(by: bag)
+        isScreenRecord
+            .bind(to: mainTextView.layer.rx.isMosaic)
             .disposed(by: bag)
     }
 }
