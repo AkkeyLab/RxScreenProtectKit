@@ -17,6 +17,7 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var mainTextView: UITextView!
     @IBOutlet private weak var filterSelecter: UISegmentedControl!
     @IBOutlet private weak var scaleChanger: UISlider!
+    @IBOutlet private weak var applyButton: UIButton!
     private let bag = DisposeBag()
 
     override func viewDidLoad() {
@@ -29,6 +30,13 @@ final class ViewController: UIViewController {
             .disposed(by: bag)
         isScreenRecord
             .bind(to: mainTextView.layer.rx.isMosaic)
+            .disposed(by: bag)
+        applyButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.mainImageView.layer.rx.applyMosaic()
+                self?.nameLabel.layer.rx.applyMosaic()
+                self?.mainTextView.layer.rx.applyMosaic()
+            })
             .disposed(by: bag)
 
         let filterCase: [ScreenProtectKit.FilterType] = [.linear, .nearest, .trilinear]

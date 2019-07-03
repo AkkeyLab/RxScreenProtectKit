@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol Appliable {}
+protocol Appliable {}
 
 extension Appliable {
     @discardableResult
-    public func apply(closure: (_ this: Self) -> Void) -> Self {
+    func apply(closure: (_ this: Self) -> Void) -> Self {
         closure(self)
         return self
     }
