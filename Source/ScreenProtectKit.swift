@@ -9,27 +9,28 @@
 import QuartzCore
 import Foundation
 
-public enum FilterType: Int {
-    /// Nearest neighbor interpolation filter.
-    case nearest
-    /// Linear interpolation filter.
-    case linear
-    /// Trilinear minification filter. Enables mipmap generation.
-    case trilinear
-    
-    internal func convert() -> CALayerContentsFilter {
-        switch self {
-        case .nearest:
-            return .nearest
-        case .linear:
-            return .linear
-        case .trilinear:
-            return .trilinear
+public final class ScreenProtectKit {
+    /// It conforms to CALayerContentsFilter.
+    public enum FilterType: Int {
+        /// Nearest neighbor interpolation filter.
+        case nearest
+        /// Linear interpolation filter.
+        case linear
+        /// Trilinear minification filter. Enables mipmap generation.
+        case trilinear
+        
+        internal func convert() -> CALayerContentsFilter {
+            switch self {
+            case .nearest:
+                return .nearest
+            case .linear:
+                return .linear
+            case .trilinear:
+                return .trilinear
+            }
         }
     }
-}
-
-public final class ScreenProtectKit {
+    
     /**
      Set up various parameters.
      

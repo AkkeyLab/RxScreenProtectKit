@@ -31,25 +31,19 @@ final class ViewController: UIViewController {
             .bind(to: mainTextView.layer.rx.isMosaic)
             .disposed(by: bag)
 
-        let filterCase: [CALayerContentsFilter] = [.linear, .nearest, .trilinear]
+        let filterCase: [ScreenProtectKit.FilterType] = [.linear, .nearest, .trilinear]
         filterSelecter.rx.value
             .skip(1)
             .subscribe(onNext: { [weak self] index in
                 guard let self = self else { return }
-                let type = MosaicType(isValid: true, filter: filterCase[index], scale: CGFloat(self.scaleChanger.value))
-                self.mainImageView.layer.mosaicType = type
-                self.nameLabel.layer.mosaicType = type
-                self.mainTextView.layer.mosaicType = type
+                ScreenProtectKit.config(filter: filterCase[index], scale: self.scaleChanger.value)
             })
             .disposed(by: bag)
         scaleChanger.rx.value
             .skip(1)
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
-                let type = MosaicType(isValid: true, filter: filterCase[self.filterSelecter.selectedSegmentIndex],scale: CGFloat(value))
-                self.mainImageView.layer.mosaicType = type
-                self.nameLabel.layer.mosaicType = type
-                self.mainTextView.layer.mosaicType = type
+                ScreenProtectKit.config(filter: filterCase[self.filterSelecter.selectedSegmentIndex], scale: value)
             })
             .disposed(by: bag)
     }

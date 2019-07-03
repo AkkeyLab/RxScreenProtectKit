@@ -39,6 +39,6 @@ extension UserDefaults {
 extension UserDefaults {
     func filterType(forKey defaultType: DefaultType) -> CALayerContentsFilter {
         let typeNum = self.integer(forKey: defaultType.rawValue)
-        return FilterType(rawValue: typeNum)?.convert() ?? .trilinear
+        return ScreenProtectKit.FilterType(rawValue: typeNum)?.convert() ?? .trilinear
     }
 }
