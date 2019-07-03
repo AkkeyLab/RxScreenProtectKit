@@ -53,7 +53,13 @@ public extension CALayer {
 public extension Reactive where Base: CALayer {
     var isMosaic: Binder<Bool> {
         return Binder(self.base) { layer, isValid in
-            layer.attachMosaic(type: .init(isValid: isValid))
+            UserDefaults.standard.apply { this in
+                // Set default value for UserDefaults
+                this.register(defaults: [.filter: 0, .scale: 0.1])
+                layer.attachMosaic(type: .init(isValid: isValid,
+                                               filter: this.filterType(forKey: .filter),
+                                               scale: this.cgFloat(forKey: .scale)))
+            }
         }
     }
 }
