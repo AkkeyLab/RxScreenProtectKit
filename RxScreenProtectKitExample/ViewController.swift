@@ -33,9 +33,9 @@ final class ViewController: UIViewController {
             .disposed(by: bag)
         applyButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.mainImageView.layer.rx.applyMosaic()
-                self?.nameLabel.layer.rx.applyMosaic()
-                self?.mainTextView.layer.rx.applyMosaic()
+                self?.mainImageView.layer.applyMosaic()
+                self?.nameLabel.layer.applyMosaic()
+                self?.mainTextView.layer.applyMosaic()
             })
             .disposed(by: bag)
 

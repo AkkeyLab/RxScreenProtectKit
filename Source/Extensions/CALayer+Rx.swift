@@ -41,6 +41,17 @@ fileprivate extension CALayer {
     }
 }
 
+public extension CALayer {
+    func applyMosaic() {
+        UserDefaults.standard.apply { this in
+            let isValid = shouldRasterize
+            let filter = this.filterType(forKey: .filter)
+            let scale = this.cgFloat(forKey: .scale)
+            attachMosaic(type: .init(isValid: isValid, filter: filter, scale: scale))
+        }
+    }
+}
+
 public extension Reactive where Base: CALayer {
     var isMosaic: Binder<Bool> {
         return Binder(self.base) { layer, isValid in
@@ -51,15 +62,6 @@ public extension Reactive where Base: CALayer {
                 let scale = this.cgFloat(forKey: .scale)
                 self.base.attachMosaic(type: .init(isValid: isValid, filter: filter, scale: scale))
             }
-        }
-    }
-    
-    func applyMosaic() {
-        UserDefaults.standard.apply { this in
-            let isValid = self.base.shouldRasterize
-            let filter = this.filterType(forKey: .filter)
-            let scale = this.cgFloat(forKey: .scale)
-            self.base.attachMosaic(type: .init(isValid: isValid, filter: filter, scale: scale))
         }
     }
 }
