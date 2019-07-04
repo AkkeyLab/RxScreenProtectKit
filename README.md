@@ -3,6 +3,7 @@
 [![RxScreenProtectKit](https://cocoapod-badges.herokuapp.com/v/RxScreenProtectKit/badge.png)](https://cocoapods.org/pods/RxScreenProtectKit)
 ![ios](https://cocoapod-badges.herokuapp.com/p/RxScreenProtectKit/badge.png)
 ![MIT](https://cocoapod-badges.herokuapp.com/l/RxScreenProtectKit/badge.png)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 Protect private content from screen recordings and screen output.  
 Screen Recording / QuickTime Recording / External display output / AirPlay
