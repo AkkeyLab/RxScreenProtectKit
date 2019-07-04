@@ -1,11 +1,14 @@
-<img src="Resources/logo.png" alt="Miss Electric Eel 2016" width="36" height="36"> RxScreenProtectKit
+<img src="https://github.com/AkkeyLab/RxScreenProtectKit/blob/master/Resources/logo.png?raw=true" alt="Miss Electric Eel 2016" width="36" height="36"> RxScreenProtectKit
 ======================================
+[![RxScreenProtectKit](https://cocoapod-badges.herokuapp.com/v/RxScreenProtectKit/badge.png)](https://cocoapods.org/pods/RxScreenProtectKit)
+![ios](https://cocoapod-badges.herokuapp.com/p/RxScreenProtectKit/badge.png)
+![MIT](https://cocoapod-badges.herokuapp.com/l/RxScreenProtectKit/badge.png)
 
 Protect private content from screen recordings and screen output.  
 Screen Recording / QuickTime Recording / External display output / AirPlay
 
 <div align="center">
-<img src="Resources/mock-normal.png" width="350"/> <img src="Resources/mock-mosaic.png" width="350"/>
+<img src="https://github.com/AkkeyLab/RxScreenProtectKit/blob/master/Resources/mock-normal.png?raw=true" width="350"/> <img src="https://github.com/AkkeyLab/RxScreenProtectKit/blob/master/Resources/mock-mosaic.png?raw=true" width="350"/>
 </div>
 
 # Installation
