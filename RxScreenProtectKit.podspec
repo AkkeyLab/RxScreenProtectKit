@@ -6,14 +6,16 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/AkkeyLab/RxScreenProtectKit'
     s.license          = 'MIT'
     s.author           = 'AkkeyLab'
-    s.source           = { :git => 'https://github.com/AkkeyLab/RxScreenProtectKit.git', :tag => "#{spec.version}" }
+    s.source           = { :git => 'https://github.com/AkkeyLab/RxScreenProtectKit.git', :tag => "#{s.version}" }
     s.social_media_url = 'https://twitter.com/AkkeyLab'
-    
-    s.ios.deployment_target = '11.0'
 
-    s.module_name = "RxScreenProtectKit"
+    s.platform         = :ios, "11.0"
+    s.swift_version    = "5.0"
+
+    s.module_name      = "RxScreenProtectKit"
 
     s.dependency 'RxSwift', '~> 4.0'
+    s.dependency 'RxCocoa', '~> 4.0'
 
-    s.source_files  = 'Source/**/*'
+    s.source_files     = 'Source/**/*'
 end
