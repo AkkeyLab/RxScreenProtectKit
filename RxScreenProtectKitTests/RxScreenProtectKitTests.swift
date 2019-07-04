@@ -9,26 +9,31 @@
 import XCTest
 @testable import RxScreenProtectKit
 
-class RxScreenProtectKitTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+final class RxScreenProtectKitTests: XCTestCase {
+    
+    func testFilterType() {
+        XCTAssertEqual(ScreenProtectKit.FilterType.nearest.convert(), CALayerContentsFilter.nearest)
+        XCTAssertEqual(ScreenProtectKit.FilterType.linear.convert(), CALayerContentsFilter.linear)
+        XCTAssertEqual(ScreenProtectKit.FilterType.trilinear.convert(), CALayerContentsFilter.trilinear)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testValidMosaicType() {
+        let type = MosaicType(isValid: true)
+        XCTAssertEqual(type.minificationFilter, .trilinear)
+        XCTAssertEqual(type.rasterizationScale, 0.1)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testInvalidMosaicType() {
+        let type = MosaicType(isValid: false)
+        XCTAssertEqual(type.minificationFilter, .linear)
+        XCTAssertEqual(type.rasterizationScale, 1.0)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testAttachMosaic() {
+        let layer = CALayer()
+        layer.attachMosaic(type: MosaicType(isValid: true))
+        XCTAssertEqual(layer.minificationFilter, .trilinear)
+        XCTAssertEqual(layer.rasterizationScale, 0.1)
+        XCTAssertEqual(layer.shouldRasterize, true)
     }
-
 }

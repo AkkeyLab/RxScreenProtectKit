@@ -10,7 +10,7 @@ import QuartzCore
 import RxCocoa
 import RxSwift
 
-fileprivate struct MosaicType {
+struct MosaicType {
     var isValid: Bool
     /// The filter used when reducing the size of the content.
     var filter: CALayerContentsFilter
@@ -33,7 +33,7 @@ fileprivate struct MosaicType {
     }
 }
 
-fileprivate extension CALayer {
+extension CALayer {
     func attachMosaic(type: MosaicType) {
         minificationFilter = type.minificationFilter
         rasterizationScale = type.rasterizationScale
