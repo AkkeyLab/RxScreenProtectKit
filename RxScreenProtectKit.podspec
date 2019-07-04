@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/AkkeyLab/RxScreenProtectKit'
     s.license          = 'MIT'
     s.author           = 'AkkeyLab'
-    s.source           = { :git => 'https://github.com/AkkeyLab/RxScreenProtectKit.git', :tag => s.version.to_s }
+    s.source           = { :git => 'https://github.com/AkkeyLab/RxScreenProtectKit.git', :tag => "#{spec.version}" }
     s.social_media_url = 'https://twitter.com/AkkeyLab'
     
     s.ios.deployment_target = '11.0'
