@@ -15,6 +15,7 @@ public protocol Mosaicable {
 }
 
 public extension Mosaicable {
+    /// A value that indicates whether the contents of the screen are being cloned to another destination.
     var isScreenRecord: Observable<Bool> {
         return Observable.of(
             NotificationCenter.default.rx
