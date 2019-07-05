@@ -14,7 +14,7 @@ extension UserDefaults {
         case filter = "com.akkeylab.minificationFilter"
         case scale = "com.akkeylab.rasterizationScale"
     }
-    
+
     func register(defaults registrationDictionary: [DefaultType: Any]) {
         var dictionary: [String: Any] = [:]
         registrationDictionary.forEach { value in
@@ -22,15 +22,15 @@ extension UserDefaults {
         }
         self.register(defaults: dictionary)
     }
-    
+
     func cgFloat(forKey defaultType: DefaultType) -> CGFloat {
         return CGFloat(self.float(forKey: defaultType.rawValue))
     }
-    
+
     func set(_ value: Float, forKey defaultType: DefaultType) {
         self.set(value, forKey: defaultType.rawValue)
     }
-    
+
     func set(_ value: Int, forKey defaultType: DefaultType) {
         self.set(value, forKey: defaultType.rawValue)
     }

@@ -18,7 +18,7 @@ public final class ScreenProtectKit {
         case linear
         /// Trilinear minification filter. Enables mipmap generation.
         case trilinear
-        
+
         internal func convert() -> CALayerContentsFilter {
             switch self {
             case .nearest:
@@ -30,7 +30,7 @@ public final class ScreenProtectKit {
             }
         }
     }
-    
+
     /**
      Set up various parameters.
      

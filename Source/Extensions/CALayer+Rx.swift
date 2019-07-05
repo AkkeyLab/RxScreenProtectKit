@@ -23,7 +23,6 @@ struct MosaicType {
         self.scale = scale
     }
 
-
     var minificationFilter: CALayerContentsFilter {
         return isValid ? filter : .linear
     }
@@ -54,7 +53,7 @@ public extension CALayer {
 
 public extension Reactive where Base: CALayer {
     var isMosaic: Binder<Bool> {
-        return Binder(self.base) { layer, isValid in
+        return Binder(self.base) { _, isValid in
             UserDefaults.standard.apply { this in
                 // Set default value for UserDefaults
                 this.register(defaults: [.filter: 0, .scale: 0.1])
