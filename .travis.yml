@@ -12,8 +12,10 @@ before_install:
 
 script:
     - xcodebuild -scheme RxScreenProtectKit -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.2,name=iPhone X' -configuration Debug test | xcpretty -c
-    - bash <(curl -s https://codecov.io/bash) -t 31ae53bc-db30-4cd8-a1cf-7bca2026a5ea
     - swiftlint
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash) -t 31ae53bc-db30-4cd8-a1cf-7bca2026a5ea
 
 # https://docs.travis-ci.com/user/reference/osx/#xcode-version
 # https://docs.travis-ci.com/user/languages/objective-c/
