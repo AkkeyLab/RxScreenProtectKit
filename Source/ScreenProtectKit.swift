@@ -10,45 +10,22 @@ import QuartzCore
 import Foundation
 
 public final class ScreenProtectKit {
-    /// It conforms to CALayerContentsFilter.
-    public enum FilterType: Int {
-        /// Nearest neighbor interpolation filter.
-        case nearest
-        /// Linear interpolation filter.
-        case linear
-        /// Trilinear minification filter. Enables mipmap generation.
-        case trilinear
+    public static let shared = ScreenProtectKit()
 
-        internal func convert() -> CALayerContentsFilter {
-            switch self {
-            case .nearest:
-                return .nearest
-            case .linear:
-                return .linear
-            case .trilinear:
-                return .trilinear
-            }
-        }
-    }
+    internal var filter: CALayerContentsFilter = .trilinear
+    internal var scale: CGFloat = 0.1
+
+    private init() {}
 
     /**
      Set up various parameters.
-     
-     # FilterType
-     
-     It conforms to CALayerContentsFilter.
-        - nearest
-        - linear
-        - trilinear
-     
+
      - parameters:
         - filter: The filter used when reducing the size of the content.
         - scale: The scale at which to rasterize content, relative to the coordinate space of the layer.
     */
-    public static func config(filter: FilterType = .trilinear, scale: Float = 0.1) {
-        UserDefaults.standard.apply { this in
-            this.set(filter.rawValue, forKey: .filter)
-            this.set(scale, forKey: .scale)
-        }
+    public func config(filter: CALayerContentsFilter = .trilinear, scale: CGFloat = 0.1) {
+        self.filter = filter
+        self.scale = scale
     }
 }

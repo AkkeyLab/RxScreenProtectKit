@@ -11,12 +11,6 @@ import XCTest
 
 final class RxScreenProtectKitTests: XCTestCase {
 
-    func testFilterType() {
-        XCTAssertEqual(ScreenProtectKit.FilterType.nearest.convert(), CALayerContentsFilter.nearest)
-        XCTAssertEqual(ScreenProtectKit.FilterType.linear.convert(), CALayerContentsFilter.linear)
-        XCTAssertEqual(ScreenProtectKit.FilterType.trilinear.convert(), CALayerContentsFilter.trilinear)
-    }
-
     func testValidMosaicType() {
         let type = MosaicType(isValid: true)
         XCTAssertEqual(type.minificationFilter, .trilinear)
