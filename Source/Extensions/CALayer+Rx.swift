@@ -66,12 +66,8 @@ extension CALayer {
 public extension CALayer {
     /// Reflects the parameter change.
     func applyMosaic() {
-        UserDefaults.standard.apply { this in
-            let isValid = shouldRasterize
-            let filter = this.filterType(forKey: .filter)
-            let scale = this.cgFloat(forKey: .scale)
-            attachMosaic(type: .init(isValid: isValid, filter: filter, scale: scale))
-        }
+        let kit = ScreenProtectKit.shared
+        attachMosaic(type: .init(isValid: shouldRasterize, filter: kit.filter, scale: kit.scale))
     }
 }
 
@@ -79,13 +75,8 @@ public extension Reactive where Base: CALayer {
     /// Bindable sink for Mosaic.
     var isMosaic: Binder<Bool> {
         return Binder(self.base) { _, isValid in
-            UserDefaults.standard.apply { this in
-                // Set default value for UserDefaults
-                this.register(defaults: [.filter: 0, .scale: 0.1])
-                let filter = this.filterType(forKey: .filter)
-                let scale = this.cgFloat(forKey: .scale)
-                self.base.attachMosaic(type: .init(isValid: isValid, filter: filter, scale: scale))
-            }
+            let kit = ScreenProtectKit.shared
+            self.base.attachMosaic(type: .init(isValid: isValid, filter: kit.filter, scale: kit.scale))
         }
     }
 }
