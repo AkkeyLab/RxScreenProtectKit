@@ -14,18 +14,25 @@ public protocol Mosaicable {
     var isScreenRecord: Observable<Bool> { get }
 }
 
-public extension Mosaicable {
+public extension Mosaicable where Self: UIViewController {
     /// A value that indicates whether the contents of the screen are being cloned to another destination.
     var isScreenRecord: Observable<Bool> {
         return Observable.of(
+            self.rx.viewWillAppear,
             NotificationCenter.default.rx
-                .notification(UIScreen.capturedDidChangeNotification),
+                .notification2(UIScreen.capturedDidChangeNotification),
             NotificationCenter.default.rx
-                .notification(UIApplication.willEnterForegroundNotification),
+                .notification2(UIApplication.willEnterForegroundNotification),
             NotificationCenter.default.rx
-                .notification(UIApplication.didEnterBackgroundNotification)
+                .notification2(UIApplication.didEnterBackgroundNotification)
         )
             .merge()
             .map { _ in UIScreen.main.isCaptured }
+    }
+}
+
+private extension Reactive where Base: NotificationCenter {
+    func notification2(_ name: Notification.Name?) -> RxSwift.Observable<Void> {
+        return self.notification(name).map { _ in () }
     }
 }
