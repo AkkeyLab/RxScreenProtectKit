@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E538577122CCBBB80052A792 /* NSObject+Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = E538577022CCBBB80052A792 /* NSObject+Apply.swift */; };
-		E538577322CCBCA70052A792 /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E538577222CCBCA70052A792 /* UserDefaults+.swift */; };
 		E538577522CCC4EA0052A792 /* ScreenProtectKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E538577422CCC4EA0052A792 /* ScreenProtectKit.swift */; };
 		E5583BBA2265DC1F0081702C /* RxScreenProtectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BB02265DC1F0081702C /* RxScreenProtectKit.framework */; };
 		E5583BBF2265DC1F0081702C /* RxScreenProtectKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5583BBE2265DC1F0081702C /* RxScreenProtectKitTests.swift */; };
@@ -45,7 +44,6 @@
 
 /* Begin PBXFileReference section */
 		E538577022CCBBB80052A792 /* NSObject+Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Apply.swift"; sourceTree = "<group>"; };
-		E538577222CCBCA70052A792 /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		E538577422CCC4EA0052A792 /* ScreenProtectKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenProtectKit.swift; sourceTree = "<group>"; };
 		E5583BB02265DC1F0081702C /* RxScreenProtectKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxScreenProtectKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5583BB42265DC1F0081702C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				E5583BCE2265EF960081702C /* CALayer+Rx.swift */,
-				E538577222CCBCA70052A792 /* UserDefaults+.swift */,
 				E538577022CCBBB80052A792 /* NSObject+Apply.swift */,
 				E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */,
 			);
@@ -366,7 +363,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E538577322CCBCA70052A792 /* UserDefaults+.swift in Sources */,
 				E5AA57A922D32B96005E38BE /* UIViewController+Rx.swift in Sources */,
 				E5583BCB2265EA1A0081702C /* Mosaicable.swift in Sources */,
 				E5583BCF2265EF960081702C /* CALayer+Rx.swift in Sources */,
