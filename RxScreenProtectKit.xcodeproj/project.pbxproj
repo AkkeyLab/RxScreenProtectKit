@@ -23,6 +23,7 @@
 		E5583BE92265FBD40081702C /* RxScreenProtectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BB02265DC1F0081702C /* RxScreenProtectKit.framework */; };
 		E5583BEC2266071D0081702C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BEA2266071D0081702C /* RxSwift.framework */; };
 		E5583BED2266071D0081702C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BEB2266071D0081702C /* RxCocoa.framework */; };
+		E5AA57A922D32B96005E38BE /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		E5583BE42265FBB60081702C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5583BEA2266071D0081702C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		E5583BEB2266071D0081702C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				E5583BCE2265EF960081702C /* CALayer+Rx.swift */,
 				E538577222CCBCA70052A792 /* UserDefaults+.swift */,
 				E538577022CCBBB80052A792 /* NSObject+Apply.swift */,
+				E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E538577322CCBCA70052A792 /* UserDefaults+.swift in Sources */,
+				E5AA57A922D32B96005E38BE /* UIViewController+Rx.swift in Sources */,
 				E5583BCB2265EA1A0081702C /* Mosaicable.swift in Sources */,
 				E5583BCF2265EF960081702C /* CALayer+Rx.swift in Sources */,
 				E538577122CCBBB80052A792 /* NSObject+Apply.swift in Sources */,
