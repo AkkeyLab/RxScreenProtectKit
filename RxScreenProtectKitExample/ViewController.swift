@@ -18,6 +18,7 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var filterSelecter: UISegmentedControl!
     @IBOutlet private weak var scaleChanger: UISlider!
     @IBOutlet private weak var applyButton: UIButton!
+    @IBOutlet private weak var scaleLabel: UILabel!
     private let bag = DisposeBag()
 
     override func viewDidLoad() {
@@ -52,6 +53,7 @@ final class ViewController: UIViewController {
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
                 ScreenProtectKit.config(filter: filterCase[self.filterSelecter.selectedSegmentIndex], scale: value)
+                self.scaleLabel.text = "\(value)"
             })
             .disposed(by: bag)
     }
