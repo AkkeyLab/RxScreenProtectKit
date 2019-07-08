@@ -197,6 +197,7 @@
 				E5583BAC2265DC1F0081702C /* Sources */,
 				E5583BAD2265DC1F0081702C /* Frameworks */,
 				E5583BAE2265DC1F0081702C /* Resources */,
+				E5AA57AA22D33556005E38BE /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -337,6 +338,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		E5AA57AA22D33556005E38BE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		EAC85EF422CFC1DE0048ED3B /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
