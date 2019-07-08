@@ -39,19 +39,23 @@ final class ViewController: UIViewController {
             })
             .disposed(by: bag)
 
-        let filterCase: [ScreenProtectKit.FilterType] = [.linear, .nearest, .trilinear]
+        let filterCase: [CALayerContentsFilter] = [.linear, .nearest, .trilinear]
         filterSelecter.rx.value
             .skip(1)
             .subscribe(onNext: { [weak self] index in
                 guard let self = self else { return }
-                ScreenProtectKit.config(filter: filterCase[index], scale: self.scaleChanger.value)
+                ScreenProtectKit
+                    .shared
+                    .config(filter: filterCase[index], scale: CGFloat(self.scaleChanger.value))
             })
             .disposed(by: bag)
         scaleChanger.rx.value
             .skip(1)
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
-                ScreenProtectKit.config(filter: filterCase[self.filterSelecter.selectedSegmentIndex], scale: value)
+                ScreenProtectKit
+                    .shared
+                    .config(filter: filterCase[self.filterSelecter.selectedSegmentIndex], scale: CGFloat(value))
             })
             .disposed(by: bag)
     }
