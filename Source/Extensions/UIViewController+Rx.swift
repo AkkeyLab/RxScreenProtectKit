@@ -2,7 +2,7 @@
 //  UIViewController+Rx.swift
 //  RxScreenProtectKit
 //
-//  Created by 板谷 晃良 on 2019/07/08.
+//  Created by AKIO on 2019/07/08.
 //  Copyright © 2019 AKIO. All rights reserved.
 //
 
