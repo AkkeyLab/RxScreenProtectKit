@@ -44,14 +44,18 @@ final class ViewController: UIViewController {
             .skip(1)
             .subscribe(onNext: { [weak self] index in
                 guard let self = self else { return }
-                ScreenProtectKit.shared.config(filter: filterCase[index], scale: CGFloat(self.scaleChanger.value))
+                ScreenProtectKit
+                    .shared
+                    .config(filter: filterCase[index], scale: CGFloat(self.scaleChanger.value))
             })
             .disposed(by: bag)
         scaleChanger.rx.value
             .skip(1)
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
-                ScreenProtectKit.shared.config(filter: filterCase[self.filterSelecter.selectedSegmentIndex], scale: CGFloat(value))
+                ScreenProtectKit
+                    .shared
+                    .config(filter: filterCase[self.filterSelecter.selectedSegmentIndex], scale: CGFloat(value))
             })
             .disposed(by: bag)
     }

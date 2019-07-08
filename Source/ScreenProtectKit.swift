@@ -11,10 +11,11 @@ import Foundation
 
 public final class ScreenProtectKit {
     public static let shared = ScreenProtectKit()
-    
-    private init() {}
+
     internal var filter: CALayerContentsFilter = .trilinear
     internal var scale: CGFloat = 0.1
+
+    private init() {}
 
     /**
      Set up various parameters.
