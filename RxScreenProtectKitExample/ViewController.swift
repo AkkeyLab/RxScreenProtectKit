@@ -15,7 +15,8 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var mainImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var mainTextView: UITextView!
-    @IBOutlet private weak var filterSelecter: UISegmentedControl!
+    @IBOutlet private weak var minificationFilterControl: UISegmentedControl!
+    @IBOutlet private weak var magnificationFilterControl: UISegmentedControl!
     @IBOutlet private weak var scaleChanger: UISlider!
     @IBOutlet private weak var applyButton: UIButton!
     @IBOutlet private weak var scaleLabel: UILabel!
@@ -40,14 +41,31 @@ final class ViewController: UIViewController {
             })
             .disposed(by: bag)
 
+        changeSettings()
+    }
+
+    func changeSettings() {
         let filterCase: [CALayerContentsFilter] = [.linear, .nearest, .trilinear]
-        filterSelecter.rx.value
+        minificationFilterControl.rx.value
             .skip(1)
             .subscribe(onNext: { [weak self] index in
                 guard let self = self else { return }
                 ScreenProtectKit
                     .shared
-                    .config(filter: filterCase[index], scale: CGFloat(self.scaleChanger.value))
+                    .config(rasterizationScale: CGFloat(self.scaleChanger.value),
+                            minificationFilter: filterCase[index],
+                            magnificationFilter: filterCase[self.magnificationFilterControl.selectedSegmentIndex])
+            })
+            .disposed(by: bag)
+        magnificationFilterControl.rx.value
+            .skip(1)
+            .subscribe(onNext: { [weak self] index in
+                guard let self = self else { return }
+                ScreenProtectKit
+                    .shared
+                    .config(rasterizationScale: CGFloat(self.scaleChanger.value),
+                            minificationFilter: filterCase[self.minificationFilterControl.selectedSegmentIndex],
+                            magnificationFilter: filterCase[index])
             })
             .disposed(by: bag)
         scaleChanger.rx.value
@@ -56,7 +74,9 @@ final class ViewController: UIViewController {
                 guard let self = self else { return }
                 ScreenProtectKit
                     .shared
-                    .config(filter: filterCase[self.filterSelecter.selectedSegmentIndex], scale: CGFloat(value))
+                    .config(rasterizationScale: CGFloat(self.scaleChanger.value),
+                            minificationFilter: filterCase[self.minificationFilterControl.selectedSegmentIndex],
+                            magnificationFilter: filterCase[self.magnificationFilterControl.selectedSegmentIndex])
                 self.scaleLabel.text = "\(value)"
             })
             .disposed(by: bag)
