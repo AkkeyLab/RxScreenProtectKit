@@ -12,8 +12,9 @@ import Foundation
 public final class ScreenProtectKit {
     public static let shared = ScreenProtectKit()
 
-    internal var filter: CALayerContentsFilter = .trilinear
-    internal var scale: CGFloat = 0.1
+    internal var rasterizationScale: CGFloat = 0.1
+    internal var minificationFilter: CALayerContentsFilter = .trilinear
+    internal var magnificationFilter: CALayerContentsFilter = .nearest
 
     private init() {}
 
@@ -21,11 +22,15 @@ public final class ScreenProtectKit {
      Set up various parameters.
 
      - parameters:
-        - filter: The filter used when reducing the size of the content.
-        - scale: The scale at which to rasterize content, relative to the coordinate space of the layer.
+        - rasterizationScale: The scale at which to rasterize content, relative to the coordinate space of the layer.
+        - minificationFilter: The filter used when reducing the size of the content.
+        - magnificationFilter: The filter used when increasing the size of the content.
     */
-    public func config(filter: CALayerContentsFilter = .trilinear, scale: CGFloat = 0.1) {
-        self.filter = filter
-        self.scale = scale
+    public func config(rasterizationScale: CGFloat = 0.1,
+                       minificationFilter: CALayerContentsFilter = .trilinear,
+                       magnificationFilter: CALayerContentsFilter = .nearest) {
+        self.rasterizationScale = rasterizationScale
+        self.minificationFilter = minificationFilter
+        self.magnificationFilter = magnificationFilter
     }
 }

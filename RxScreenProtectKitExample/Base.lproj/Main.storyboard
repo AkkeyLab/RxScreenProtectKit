@@ -31,17 +31,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xUy-KC-43z">
-                                <rect key="frame" x="16" y="359.5" width="382" height="301.5"/>
+                                <rect key="frame" x="16" y="359.5" width="382" height="237"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2AT-FS-uDy">
-                                <rect key="frame" x="16" y="677" width="382" height="131"/>
+                                <rect key="frame" x="16" y="612.5" width="382" height="195.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lno-3g-YLV">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="56.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="121"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MinificationFilter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpv-TB-glf">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
@@ -57,10 +57,24 @@
                                                     <segment title="TRILINEAR"/>
                                                 </segments>
                                             </segmentedControl>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MagnificationFilter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdB-Eb-e6b">
+                                                <rect key="frame" x="0.0" y="64.5" width="382" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GA4-zN-ZvI">
+                                                <rect key="frame" x="0.0" y="93" width="382" height="29"/>
+                                                <segments>
+                                                    <segment title="LINEAR"/>
+                                                    <segment title="NEAREST"/>
+                                                    <segment title="TRILINEAR"/>
+                                                </segments>
+                                            </segmentedControl>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dca-oq-bxJ">
-                                        <rect key="frame" x="0.0" y="72.5" width="382" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="137" width="382" height="58.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="vgB-zg-IIq">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
@@ -88,7 +102,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1C9-fe-IDt">
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1C9-fe-IDt">
                                                         <rect key="frame" x="38" y="0.0" width="308.5" height="31"/>
                                                     </slider>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clC-G3-o5O">
@@ -130,9 +144,10 @@
                     </view>
                     <connections>
                         <outlet property="applyButton" destination="5cd-cu-oJF" id="Fa2-Ee-IRY"/>
-                        <outlet property="filterSelecter" destination="13v-eW-TLv" id="cIo-S7-70h"/>
+                        <outlet property="magnificationFilterControl" destination="GA4-zN-ZvI" id="foU-Yf-4at"/>
                         <outlet property="mainImageView" destination="SXz-rv-bXh" id="lRx-EJ-pn0"/>
                         <outlet property="mainTextView" destination="xUy-KC-43z" id="bKS-sr-RQd"/>
+                        <outlet property="minificationFilterControl" destination="13v-eW-TLv" id="onz-or-0dF"/>
                         <outlet property="nameLabel" destination="sLg-ir-Bpp" id="npQ-uM-A9n"/>
                         <outlet property="scaleChanger" destination="1C9-fe-IDt" id="kdi-Qa-oHo"/>
                         <outlet property="scaleLabel" destination="kMx-V7-iWW" id="MIX-Di-T8o"/>

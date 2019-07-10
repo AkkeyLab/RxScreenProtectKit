@@ -11,7 +11,7 @@ Protect private content from screen recordings and screen output.
 Screen Recording / QuickTime Recording / External display output / AirPlay
 
 <div align="center">
-<img src="https://github.com/AkkeyLab/RxScreenProtectKit/blob/master/Resources/mock-normal.png?raw=true" width="350"/> <img src="https://github.com/AkkeyLab/RxScreenProtectKit/blob/master/Resources/mock-mosaic.png?raw=true" width="350"/>
+<img src="https://github.com/AkkeyLab/RxScreenProtectKit/blob/master/Resources/mock-normal.png?raw=true" width="260"/> <img src="https://github.com/AkkeyLab/RxScreenProtectKit/blob/master/Resources/mock-mosaic-A.png?raw=true" width="260"/> <img src="https://github.com/AkkeyLab/RxScreenProtectKit/blob/master/Resources/mock-mosaic-B.png?raw=true" width="260"/>
 </div>
 
 # Installation
@@ -71,7 +71,11 @@ final class ViewController: UIViewController {
 ```
 Parameter settings related to mosaic processing can be done from `ScreenProtectKit.config()`.
 ```swift
-ScreenProtectKit.config(filter: .trilinear, scale: 0.1)
+ScreenProtectKit
+    .shared
+    .config(rasterizationScale: 0.1,
+            minificationFilter: .trilinear,
+            magnificationFilter: .nearest)
 ```
 
 # Requirements
