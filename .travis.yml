@@ -11,7 +11,7 @@ before_install:
     - carthage update --platform iOS
 
 script:
-    - xcodebuild -scheme RxScreenProtectKit -sdk iphonesimulator -configuration Debug -destination 'platform=iOS Simulator,OS=12.2,name=iPhone X' build test
+    - xcodebuild test -scheme RxScreenProtectKit -destination 'platform=iOS Simulator,OS=12.2,name=iPhone X' -configuration Debug SWIFT_VERSION=5.0 | xcpretty;
     - swiftlint
 
 after_success:
