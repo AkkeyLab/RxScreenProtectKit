@@ -10,7 +10,7 @@ import RxSwift
 import UIKit
 
 extension Reactive where Base: UIViewController {
-    public var viewWillAppear: Observable<Void> {
+    var viewWillAppear: Observable<Void> {
         return sentMessage(#selector(base.viewWillAppear(_:)))
             .map { _ in () }
             .share(replay: 1, scope: .forever)
