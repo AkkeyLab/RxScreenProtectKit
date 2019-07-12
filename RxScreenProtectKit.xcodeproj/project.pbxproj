@@ -23,6 +23,8 @@
 		E5583BED2266071D0081702C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BEB2266071D0081702C /* RxCocoa.framework */; };
 		E5589C1222D86DDC001BD58D /* RxScreenProtectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BB02265DC1F0081702C /* RxScreenProtectKit.framework */; };
 		E5589C1322D86DDC001BD58D /* RxScreenProtectKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BB02265DC1F0081702C /* RxScreenProtectKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5589C1722D8716B001BD58D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BEB2266071D0081702C /* RxCocoa.framework */; };
+		E5589C1822D8716B001BD58D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BEA2266071D0081702C /* RxSwift.framework */; };
 		E5AA57A922D32B96005E38BE /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5589C1722D8716B001BD58D /* RxCocoa.framework in Frameworks */,
+				E5589C1822D8716B001BD58D /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +611,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -637,6 +645,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
