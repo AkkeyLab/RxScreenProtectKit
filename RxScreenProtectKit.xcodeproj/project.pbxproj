@@ -33,13 +33,6 @@
 			remoteGlobalIDString = E5583BAF2265DC1F0081702C;
 			remoteInfo = RxScreenProtectKit;
 		};
-		E5AA576C22CDBB57005E38BE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5583BA72265DC1F0081702C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E5583BD52265FBB20081702C;
-			remoteInfo = RxScreenProtectKitExample;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -220,7 +213,6 @@
 			);
 			dependencies = (
 				E5583BBC2265DC1F0081702C /* PBXTargetDependency */,
-				E5AA576D22CDBB57005E38BE /* PBXTargetDependency */,
 			);
 			name = RxScreenProtectKitTests;
 			productName = RxScreenProtectKitTests;
@@ -414,11 +406,6 @@
 			isa = PBXTargetDependency;
 			target = E5583BAF2265DC1F0081702C /* RxScreenProtectKit */;
 			targetProxy = E5583BBB2265DC1F0081702C /* PBXContainerItemProxy */;
-		};
-		E5AA576D22CDBB57005E38BE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E5583BD52265FBB20081702C /* RxScreenProtectKitExample */;
-			targetProxy = E5AA576C22CDBB57005E38BE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
