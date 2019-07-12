@@ -25,16 +25,6 @@
 		E5AA57A922D32B96005E38BE /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E5583BBB2265DC1F0081702C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5583BA72265DC1F0081702C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E5583BAF2265DC1F0081702C;
-			remoteInfo = RxScreenProtectKit;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		E538577022CCBBB80052A792 /* NSObject+Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Apply.swift"; sourceTree = "<group>"; };
 		E538577422CCC4EA0052A792 /* ScreenProtectKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenProtectKit.swift; sourceTree = "<group>"; };
@@ -212,7 +202,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				E5583BBC2265DC1F0081702C /* PBXTargetDependency */,
 			);
 			name = RxScreenProtectKitTests;
 			productName = RxScreenProtectKitTests;
@@ -400,14 +389,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E5583BBC2265DC1F0081702C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E5583BAF2265DC1F0081702C /* RxScreenProtectKit */;
-			targetProxy = E5583BBB2265DC1F0081702C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E5583BDC2265FBB20081702C /* Main.storyboard */ = {
