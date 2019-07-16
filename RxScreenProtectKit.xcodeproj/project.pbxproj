@@ -356,7 +356,6 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxScreenProtectKit.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
