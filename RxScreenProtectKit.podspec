@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
 
     s.module_name      = "RxScreenProtectKit"
 
-    s.dependency 'RxSwift', '~> 4.0'
-    s.dependency 'RxCocoa', '~> 4.0'
+    s.dependency 'RxSwift', '~> 5.0'
+    s.dependency 'RxCocoa', '~> 5.0'
 
     s.source_files     = 'Source/**/*'
 end
