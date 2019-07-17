@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E507024722DF11BF00523EA9 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E507024622DF11BF00523EA9 /* RxRelay.framework */; };
+		E507024822DF12AC00523EA9 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BEA2266071D0081702C /* RxSwift.framework */; };
 		E538577122CCBBB80052A792 /* NSObject+Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = E538577022CCBBB80052A792 /* NSObject+Apply.swift */; };
 		E538577522CCC4EA0052A792 /* ScreenProtectKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E538577422CCC4EA0052A792 /* ScreenProtectKit.swift */; };
 		E5583BBA2265DC1F0081702C /* RxScreenProtectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BB02265DC1F0081702C /* RxScreenProtectKit.framework */; };
@@ -24,7 +26,6 @@
 		E5589C1222D86DDC001BD58D /* RxScreenProtectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BB02265DC1F0081702C /* RxScreenProtectKit.framework */; };
 		E5589C1322D86DDC001BD58D /* RxScreenProtectKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BB02265DC1F0081702C /* RxScreenProtectKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5589C1722D8716B001BD58D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BEB2266071D0081702C /* RxCocoa.framework */; };
-		E5589C1822D8716B001BD58D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BEA2266071D0081702C /* RxSwift.framework */; };
 		E5AA57A922D32B96005E38BE /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E507024622DF11BF00523EA9 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		E538577022CCBBB80052A792 /* NSObject+Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Apply.swift"; sourceTree = "<group>"; };
 		E538577422CCC4EA0052A792 /* ScreenProtectKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenProtectKit.swift; sourceTree = "<group>"; };
 		E5583BB02265DC1F0081702C /* RxScreenProtectKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxScreenProtectKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,8 +96,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E507024822DF12AC00523EA9 /* RxSwift.framework in Frameworks */,
+				E507024722DF11BF00523EA9 /* RxRelay.framework in Frameworks */,
 				E5589C1722D8716B001BD58D /* RxCocoa.framework in Frameworks */,
-				E5589C1822D8716B001BD58D /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +199,7 @@
 		E5583BE82265FBD40081702C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E507024622DF11BF00523EA9 /* RxRelay.framework */,
 				E5583BEB2266071D0081702C /* RxCocoa.framework */,
 				E5583BEA2266071D0081702C /* RxSwift.framework */,
 			);
@@ -356,7 +360,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxScreenProtectKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
