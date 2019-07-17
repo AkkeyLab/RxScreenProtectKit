@@ -4,7 +4,7 @@ matrix:
         - osx_image: xcode10.2
 
 before_install:
-    - echo "git \"file://$($(dirname $0); pwd)\"" >> Cartfile
+#   - echo "git \"file://$($(dirname $0); pwd)\"" >> Cartfile
     - cat Cartfile
     - brew update
     - brew outdated swiftlint || brew upgrade swiftlint
