@@ -7,6 +7,7 @@ before_install:
     - echo "git \"file://$($(dirname $0); pwd)\"" >> Cartfile
     - cat Cartfile
     - brew update
+    - brew upgrade carthage
     - brew outdated swiftlint || brew upgrade swiftlint
     - carthage update --platform iOS
 
