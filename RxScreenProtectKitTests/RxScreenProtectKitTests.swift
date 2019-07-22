@@ -36,6 +36,19 @@ final class RxScreenProtectKitTests: XCTestCase {
         XCTAssertEqual(layer.shouldRasterize, false)
     }
 
+    func testApplyMosaic() {
+        let layer = CALayer()
+        layer.shouldRasterize = true
+        let kit = ScreenProtectKit.shared
+        kit.config(rasterizationScale: 0.5, minificationFilter: .trilinear, magnificationFilter: .trilinear)
+
+        layer.applyMosaic(kit: kit)
+        XCTAssertEqual(layer.shouldRasterize, true)
+        XCTAssertEqual(layer.rasterizationScale, 0.5)
+        XCTAssertEqual(layer.minificationFilter, .trilinear)
+        XCTAssertEqual(layer.magnificationFilter, .trilinear)
+    }
+
     // swiftlint:disable force_try
     func testRecodeNotificationForViewController() {
         let viewController = MosaicableViewController()
