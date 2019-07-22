@@ -6,6 +6,7 @@
 //  Copyright © 2019 AKIO. All rights reserved.
 //
 
+import RxSwift
 import XCTest
 @testable import RxScreenProtectKit
 
@@ -34,4 +35,33 @@ final class RxScreenProtectKitTests: XCTestCase {
         XCTAssertEqual(layer.rasterizationScale, 1.0)
         XCTAssertEqual(layer.shouldRasterize, false)
     }
+
+    // swiftlint:disable force_try
+    func testRecodeNotificationForViewController() {
+        let viewController = MosaicableViewController()
+
+        DispatchQueue.main.async {
+            viewController.viewWillAppear(false)
+        }
+
+        let isRecord = try! viewController.isScreenRecord
+            .blockingSingle()
+        XCTAssertEqual(isRecord, false)
+    }
+
+    func testRecodeNotificationForView() {
+        let view = MosaicableView()
+
+        DispatchQueue.main.async {
+            view.layoutSubviews()
+        }
+
+        let isRecord = try! view.isScreenRecord
+            .blockingSingle()
+        XCTAssertEqual(isRecord, false)
+    }
+    // swiftlint:enable force_try
 }
+
+private class MosaicableViewController: UIViewController, Mosaicable {}
+private class MosaicableView: UIView, Mosaicable {}
