@@ -58,8 +58,7 @@ extension CALayer {
 public extension CALayer {
     /// Reflects the parameter change.
     /// Use in a production environment is deprecated.
-    func applyMosaic() {
-        let kit = ScreenProtectKit.shared
+    func applyMosaic(kit: ScreenProtectKit = .shared) {
         attachMosaic(type: .init(isValid: shouldRasterize,
                                  rasterizationScale: kit.rasterizationScale,
                                  minificationFilter: kit.minificationFilter,
