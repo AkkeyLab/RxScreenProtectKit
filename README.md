@@ -51,10 +51,6 @@ import RxScreenProtectKit
 import RxSwift
 import UIKit
 ```
-Implementing Mosaicable enables you to call isScreenRecord.
-```swift
-extension ViewController: Mosaicable {}
-```
 By binding the target layer to isScreenRecord, mosaic processing is applied during screen recording or screen output. However, the layer must be compliant with CALayer.
 ```swift
 final class ViewController: UIViewController {
@@ -63,7 +59,7 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        isScreenRecord
+        self.rx.isScreenRecord
             .bind(to: mainImageView.layer.rx.isMosaic)
             .disposed(by: bag)
     }
