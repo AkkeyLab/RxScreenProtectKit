@@ -51,30 +51,27 @@ final class RxScreenProtectKitTests: XCTestCase {
 
     // swiftlint:disable force_try
     func testRecodeNotificationForViewController() {
-        let viewController = MosaicableViewController()
+        let viewController = UIViewController()
 
         DispatchQueue.main.async {
             viewController.viewWillAppear(false)
         }
 
-        let isRecord = try! viewController.isScreenRecord
+        let isRecord = try! viewController.rx.isScreenRecord
             .blockingSingle()
         XCTAssertEqual(isRecord, false)
     }
 
     func testRecodeNotificationForView() {
-        let view = MosaicableView()
+        let view = UIView()
 
         DispatchQueue.main.async {
             view.layoutSubviews()
         }
 
-        let isRecord = try! view.isScreenRecord
+        let isRecord = try! view.rx.isScreenRecord
             .blockingSingle()
         XCTAssertEqual(isRecord, false)
     }
     // swiftlint:enable force_try
 }
-
-private class MosaicableViewController: UIViewController, Mosaicable {}
-private class MosaicableView: UIView, Mosaicable {}

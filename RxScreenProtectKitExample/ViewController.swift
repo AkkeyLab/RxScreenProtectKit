@@ -24,13 +24,13 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        isScreenRecord
+        self.rx.isScreenRecord
             .bind(to: mainImageView.layer.rx.isMosaic)
             .disposed(by: bag)
-        isScreenRecord
+        self.rx.isScreenRecord
             .bind(to: nameLabel.layer.rx.isMosaic)
             .disposed(by: bag)
-        isScreenRecord
+        self.rx.isScreenRecord
             .bind(to: mainTextView.layer.rx.isMosaic)
             .disposed(by: bag)
         applyButton.rx.tap
@@ -82,5 +82,3 @@ final class ViewController: UIViewController {
             .disposed(by: bag)
     }
 }
-
-extension ViewController: Mosaicable {}

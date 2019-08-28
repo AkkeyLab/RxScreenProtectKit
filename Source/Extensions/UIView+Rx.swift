@@ -15,4 +15,14 @@ extension Reactive where Base: UIView {
             .map { _ in () }
             .share(replay: 1, scope: .forever)
     }
+
+    /// A value that indicates whether the contents of the screen are being cloned to another destination.
+    public var isScreenRecord: Observable<Bool> {
+        return Observable.of(
+            base.rx.layoutSubviews,
+            NotificationCenter.default.rx.updateTrigger
+            )
+            .merge()
+            .map { _ in UIScreen.main.isCaptured }
+    }
 }
