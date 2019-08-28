@@ -29,6 +29,7 @@
 		E5589C1722D8716B001BD58D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BEB2266071D0081702C /* RxCocoa.framework */; };
 		E5AA57A922D32B96005E38BE /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */; };
 		EA57C4D62316E5FA002AF7C6 /* NotificationCenter+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA57C4D52316E5FA002AF7C6 /* NotificationCenter+Rx.swift */; };
+		EACE9D432316EE8D0003B077 /* CALayer+Mosaic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACE9D422316EE8D0003B077 /* CALayer+Mosaic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		E5583BEB2266071D0081702C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		EA57C4D52316E5FA002AF7C6 /* NotificationCenter+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Rx.swift"; sourceTree = "<group>"; };
+		EACE9D422316EE8D0003B077 /* CALayer+Mosaic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Mosaic.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */,
 				E507024B22E0155E00523EA9 /* UIView+Rx.swift */,
 				EA57C4D52316E5FA002AF7C6 /* NotificationCenter+Rx.swift */,
+				EACE9D422316EE8D0003B077 /* CALayer+Mosaic.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5AA57A922D32B96005E38BE /* UIViewController+Rx.swift in Sources */,
+				EACE9D432316EE8D0003B077 /* CALayer+Mosaic.swift in Sources */,
 				EA57C4D62316E5FA002AF7C6 /* NotificationCenter+Rx.swift in Sources */,
 				E507024C22E0155E00523EA9 /* UIView+Rx.swift in Sources */,
 				E5583BCF2265EF960081702C /* CALayer+Rx.swift in Sources */,
