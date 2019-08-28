@@ -15,7 +15,6 @@
 		E538577522CCC4EA0052A792 /* ScreenProtectKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E538577422CCC4EA0052A792 /* ScreenProtectKit.swift */; };
 		E5583BBA2265DC1F0081702C /* RxScreenProtectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BB02265DC1F0081702C /* RxScreenProtectKit.framework */; };
 		E5583BBF2265DC1F0081702C /* RxScreenProtectKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5583BBE2265DC1F0081702C /* RxScreenProtectKitTests.swift */; };
-		E5583BCB2265EA1A0081702C /* Mosaicable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5583BCA2265EA1A0081702C /* Mosaicable.swift */; };
 		E5583BCD2265EBA90081702C /* ScreenProtectKit.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E5583BCC2265EBA90081702C /* ScreenProtectKit.xcconfig */; };
 		E5583BCF2265EF960081702C /* CALayer+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5583BCE2265EF960081702C /* CALayer+Rx.swift */; };
 		E5583BD92265FBB20081702C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5583BD82265FBB20081702C /* AppDelegate.swift */; };
@@ -29,6 +28,7 @@
 		E5589C1322D86DDC001BD58D /* RxScreenProtectKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BB02265DC1F0081702C /* RxScreenProtectKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5589C1722D8716B001BD58D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5583BEB2266071D0081702C /* RxCocoa.framework */; };
 		E5AA57A922D32B96005E38BE /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */; };
+		EA57C4D62316E5FA002AF7C6 /* NotificationCenter+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA57C4D52316E5FA002AF7C6 /* NotificationCenter+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +80,6 @@
 		E5583BB92265DC1F0081702C /* RxScreenProtectKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxScreenProtectKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5583BBE2265DC1F0081702C /* RxScreenProtectKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxScreenProtectKitTests.swift; sourceTree = "<group>"; };
 		E5583BC02265DC1F0081702C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5583BCA2265EA1A0081702C /* Mosaicable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mosaicable.swift; sourceTree = "<group>"; };
 		E5583BCC2265EBA90081702C /* ScreenProtectKit.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ScreenProtectKit.xcconfig; sourceTree = "<group>"; };
 		E5583BCE2265EF960081702C /* CALayer+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Rx.swift"; sourceTree = "<group>"; };
 		E5583BD62265FBB20081702C /* RxScreenProtectKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxScreenProtectKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +92,7 @@
 		E5583BEA2266071D0081702C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		E5583BEB2266071D0081702C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		EA57C4D52316E5FA002AF7C6 /* NotificationCenter+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +134,7 @@
 				E5583BCE2265EF960081702C /* CALayer+Rx.swift */,
 				E5AA57A822D32B96005E38BE /* UIViewController+Rx.swift */,
 				E507024B22E0155E00523EA9 /* UIView+Rx.swift */,
+				EA57C4D52316E5FA002AF7C6 /* NotificationCenter+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -174,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				E538577622CCCE5E0052A792 /* Extensions */,
-				E5583BCA2265EA1A0081702C /* Mosaicable.swift */,
 				E538577422CCC4EA0052A792 /* ScreenProtectKit.swift */,
 			);
 			path = Source;
@@ -423,7 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5AA57A922D32B96005E38BE /* UIViewController+Rx.swift in Sources */,
-				E5583BCB2265EA1A0081702C /* Mosaicable.swift in Sources */,
+				EA57C4D62316E5FA002AF7C6 /* NotificationCenter+Rx.swift in Sources */,
 				E507024C22E0155E00523EA9 /* UIView+Rx.swift in Sources */,
 				E5583BCF2265EF960081702C /* CALayer+Rx.swift in Sources */,
 				E538577522CCC4EA0052A792 /* ScreenProtectKit.swift in Sources */,
