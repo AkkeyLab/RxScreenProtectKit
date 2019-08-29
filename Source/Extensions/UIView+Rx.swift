@@ -18,11 +18,25 @@ extension Reactive where Base: UIView {
 
     /// A value that indicates whether the contents of the screen are being cloned to another destination.
     public var isScreenRecord: Observable<Bool> {
+        return Observable
+            .of(updateTrigger, NotificationCenter.default.rx.updateTrigger)
+            .merge()
+            .withLatestFrom(ScreenProtectKit.shared.isValidState)
+            .map { isValid in
+                return isValid ? UIScreen.main.isCaptured : false
+            }
+            .share(replay: 1, scope: .forever)
+    }
+
+    private var updateTrigger: Observable<Void> {
         return Observable.of(
-            base.rx.layoutSubviews,
-            NotificationCenter.default.rx.updateTrigger
+            base.rx.layoutSubviews
+                .withLatestFrom(ScreenProtectKit.shared.isValidState)
+                .filter { $0 }
+                .map { _ in () },
+            ScreenProtectKit.shared.isValidState
+                .map { _ in () }
             )
             .merge()
-            .map { _ in UIScreen.main.isCaptured }
     }
 }

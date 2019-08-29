@@ -20,6 +20,8 @@ extension Reactive where Base: NotificationCenter {
                 .notification(UIApplication.didEnterBackgroundNotification)
             )
             .merge()
+            .withLatestFrom(ScreenProtectKit.shared.isValidState)
+            .filter { $0 }
             .map { _ in () }
     }
 }

@@ -7,6 +7,8 @@
 //
 
 import QuartzCore
+import RxCocoa
+import RxSwift
 import Foundation
 
 public final class ScreenProtectKit {
@@ -15,6 +17,17 @@ public final class ScreenProtectKit {
     internal var rasterizationScale: CGFloat = 0.1
     internal var minificationFilter: CALayerContentsFilter = .trilinear
     internal var magnificationFilter: CALayerContentsFilter = .nearest
+    internal lazy var isValidState = _isValid.distinctUntilChanged()
+
+    private var _isValid = BehaviorRelay<Bool>(value: true)
+    public var isValid: Bool {
+        set {
+            _isValid.accept(newValue)
+        }
+        get {
+            return _isValid.value
+        }
+    }
 
     private init() {}
 
