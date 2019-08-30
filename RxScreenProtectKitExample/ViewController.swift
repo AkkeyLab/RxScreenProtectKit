@@ -20,6 +20,7 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var scaleChanger: UISlider!
     @IBOutlet private weak var applyButton: UIButton!
     @IBOutlet private weak var scaleLabel: UILabel!
+    @IBOutlet private weak var validSwitch: UISwitch!
     private let bag = DisposeBag()
 
     override func viewDidLoad() {
@@ -38,6 +39,11 @@ final class ViewController: UIViewController {
                 self?.mainImageView.layer.applyMosaic()
                 self?.nameLabel.layer.applyMosaic()
                 self?.mainTextView.layer.applyMosaic()
+            })
+            .disposed(by: bag)
+        validSwitch.rx.value
+            .subscribe(onNext: { isValid in
+                ScreenProtectKit.shared.isValid = isValid
             })
             .disposed(by: bag)
 

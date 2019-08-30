@@ -49,27 +49,127 @@ final class RxScreenProtectKitTests: XCTestCase {
         XCTAssertEqual(layer.magnificationFilter, .trilinear)
     }
 
+    func testLoadValidFlag() {
+        let kit = ScreenProtectKit.shared
+        kit.isValid = false
+        XCTAssertEqual(kit.isValid, false)
+    }
+
     // swiftlint:disable force_try
-    func testRecodeNotificationForViewController() {
+    func testFlagValidRecodeNotificationForViewController() {
         let viewController = UIViewController()
+        ScreenProtectKit.shared.isValid = true
 
         DispatchQueue.main.async {
             viewController.viewWillAppear(false)
         }
 
         let isRecord = try! viewController.rx.isScreenRecord
+            .skip(1)
             .blockingSingle()
         XCTAssertEqual(isRecord, false)
     }
 
-    func testRecodeNotificationForView() {
+    func testFlagValidRecodeNotificationForView() {
         let view = UIView()
+        ScreenProtectKit.shared.isValid = true
 
         DispatchQueue.main.async {
             view.layoutSubviews()
         }
 
         let isRecord = try! view.rx.isScreenRecord
+            .skip(1)
+            .blockingSingle()
+        XCTAssertEqual(isRecord, false)
+    }
+
+    func testFlagInvalidRecodeNotificationForViewController() {
+        let viewController = UIViewController()
+        let bag = DisposeBag()
+        ScreenProtectKit.shared.isValid = false
+
+        viewController.rx.isScreenRecord
+            .skip(1)
+            .subscribe(onNext: { _ in
+                XCTAssert(false)
+            })
+            .disposed(by: bag)
+
+        viewController.viewWillAppear(false)
+    }
+
+    func testFlagInvalidRecodeNotificationForView() {
+        let view = UIView()
+        let bag = DisposeBag()
+        ScreenProtectKit.shared.isValid = false
+
+        _ = view.rx.isScreenRecord
+            .skip(1)
+            .subscribe(onNext: { _ in
+                XCTAssert(false)
+            })
+            .disposed(by: bag)
+
+        view.layoutSubviews()
+    }
+
+    func testFlagValidForViewController() {
+        let viewController = UIViewController()
+        let kit = ScreenProtectKit.shared
+
+        kit.isValid = false // For distinctUntilChanged()
+        DispatchQueue.main.async {
+            kit.isValid = true
+        }
+
+        let isRecord = try! viewController.rx.isScreenRecord
+            .skip(1)
+            .blockingSingle()
+        XCTAssertEqual(isRecord, false)
+    }
+
+    func testFlagInvalidForViewController() {
+        let viewController = UIViewController()
+        let kit = ScreenProtectKit.shared
+
+        kit.isValid = true // For distinctUntilChanged()
+        DispatchQueue.main.async {
+            kit.isValid = false
+        }
+
+        let isRecord = try! viewController.rx.isScreenRecord
+            .skip(1)
+            .blockingSingle()
+        XCTAssertEqual(isRecord, false)
+    }
+
+    func testFlagValidForView() {
+        let view = UIView()
+        let kit = ScreenProtectKit.shared
+
+        kit.isValid = false // For distinctUntilChanged()
+        DispatchQueue.main.async {
+            kit.isValid = true
+        }
+
+        let isRecord = try! view.rx.isScreenRecord
+            .skip(1)
+            .blockingSingle()
+        XCTAssertEqual(isRecord, false)
+    }
+
+    func testFlagInvalidForView() {
+        let view = UIView()
+        let kit = ScreenProtectKit.shared
+
+        kit.isValid = true // For distinctUntilChanged()
+        DispatchQueue.main.async {
+            kit.isValid = false
+        }
+
+        let isRecord = try! view.rx.isScreenRecord
+            .skip(1)
             .blockingSingle()
         XCTAssertEqual(isRecord, false)
     }

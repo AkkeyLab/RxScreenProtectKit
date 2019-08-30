@@ -31,14 +31,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xUy-KC-43z">
-                                <rect key="frame" x="16" y="359.5" width="382" height="237"/>
+                                <rect key="frame" x="16" y="359.5" width="382" height="236"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2AT-FS-uDy">
-                                <rect key="frame" x="16" y="612.5" width="382" height="195.5"/>
+                                <rect key="frame" x="16" y="611.5" width="382" height="195.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lno-3g-YLV">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="121"/>
@@ -118,9 +118,12 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cd-cu-oJF">
-                                <rect key="frame" x="358" y="824" width="40" height="30"/>
+                                <rect key="frame" x="358" y="823" width="40" height="31"/>
                                 <state key="normal" title="Apply"/>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tw5-z6-ysL">
+                                <rect key="frame" x="16" y="823" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -128,7 +131,10 @@
                             <constraint firstItem="5cd-cu-oJF" firstAttribute="top" secondItem="2AT-FS-uDy" secondAttribute="bottom" constant="16" id="Exq-yB-hVm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xUy-KC-43z" secondAttribute="trailing" constant="16" id="JYI-X5-YDK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5cd-cu-oJF" secondAttribute="trailing" constant="16" id="JtL-eS-Ueo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tw5-z6-ysL" secondAttribute="bottom" constant="8" id="Lhc-ff-fyZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5cd-cu-oJF" secondAttribute="bottom" constant="8" id="Mxt-5k-c18"/>
+                            <constraint firstItem="tw5-z6-ysL" firstAttribute="top" secondItem="2AT-FS-uDy" secondAttribute="bottom" constant="16" id="ThZ-qO-dRC"/>
+                            <constraint firstItem="tw5-z6-ysL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="UdV-H9-3Oo"/>
                             <constraint firstItem="2AT-FS-uDy" firstAttribute="top" secondItem="xUy-KC-43z" secondAttribute="bottom" constant="16" id="VI6-8G-dKT"/>
                             <constraint firstItem="xUy-KC-43z" firstAttribute="top" secondItem="sLg-ir-Bpp" secondAttribute="bottom" constant="8" id="ZoV-Dd-y7a"/>
                             <constraint firstItem="xUy-KC-43z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="awu-CQ-3E2"/>
@@ -151,6 +157,7 @@
                         <outlet property="nameLabel" destination="sLg-ir-Bpp" id="npQ-uM-A9n"/>
                         <outlet property="scaleChanger" destination="1C9-fe-IDt" id="kdi-Qa-oHo"/>
                         <outlet property="scaleLabel" destination="kMx-V7-iWW" id="MIX-Di-T8o"/>
+                        <outlet property="validSwitch" destination="tw5-z6-ysL" id="bdc-xP-oFj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
