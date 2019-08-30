@@ -65,13 +65,23 @@ final class ViewController: UIViewController {
     }
 }
 ```
-Parameter settings related to mosaic processing can be done from `ScreenProtectKit.config()`.
+Parameter settings related to mosaic processing can be done from `ScreenProtectKit.shared.config()`.
 ```swift
 ScreenProtectKit
     .shared
     .config(rasterizationScale: 0.1,
             minificationFilter: .trilinear,
             magnificationFilter: .nearest)
+```
+
+# Settings
+You can temporarily disable this feature. In addition, it returns to the valid state by restarting the app.  
+`IsScreenRecord` will not flow while this setting is disabled.  
+When the value of this setting is changed, `isScreenRecord` will flow only once. When changed to invalid, false will flow, and when changed to valid, the current recording status will flow.
+```swift
+ScreenProtectKit
+    .shared
+    .isValid = isValid
 ```
 
 # Requirements
