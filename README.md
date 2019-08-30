@@ -76,7 +76,7 @@ ScreenProtectKit
 
 # Settings
 You can temporarily disable this feature. In addition, it returns to the valid state by restarting the app.  
-`IsScreenRecord` will not flow while this setting is disabled.  
+`isScreenRecord` will not flow while this setting is disabled.  
 When the value of this setting is changed, `isScreenRecord` will flow only once. When changed to invalid, false will flow, and when changed to valid, the current recording status will flow.
 ```swift
 ScreenProtectKit
