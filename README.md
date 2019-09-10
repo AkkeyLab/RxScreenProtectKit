@@ -73,6 +73,19 @@ ScreenProtectKit
             minificationFilter: .trilinear,
             magnificationFilter: .nearest)
 ```
+Moreover, it can be easily implemented by using SPImageView. This is particularly useful when images are set asynchronously.
+```swift
+final class ViewController: UIViewController {
+    @IBOutlet private weak var mainImageView: UIImageView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+            self?.mainImageView.image = UIImage(name: "sample")
+        }
+    }
+}
+```
 
 # Settings
 You can temporarily disable this feature. In addition, it returns to the valid state by restarting the app.  
