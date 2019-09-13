@@ -15,7 +15,6 @@ public class SPImageView: UIImageView {
     override public var image: UIImage? {
         set {
             super.image = newValue
-            setup()
             if newValue != nil {
                 load.onNext(())
             }
@@ -25,11 +24,18 @@ public class SPImageView: UIImageView {
         }
     }
 
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        setup()
+    }
+
     private lazy var setup: (() -> Void) = {
-        _ = load
-            .delay(.milliseconds(100), scheduler: MainScheduler.instance)
+        _ = Observable.of(
+            self.rx.isScreenRecord.map { _ in () },
+            load
+            )
+            .merge()
             .withLatestFrom(self.rx.isScreenRecord)
-            .map { !$0 }
             .takeUntil(self.rx.deallocated)
             .bind(to: self.layer.rx.isMosaic)
         return {}
