@@ -9,7 +9,7 @@
 import RxSwift
 import UIKit
 
-public class SPImageView: UIImageView {
+public final class SPImageView: UIImageView {
     private var load = PublishSubject<Void>()
 
     override public var image: UIImage? {
