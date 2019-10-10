@@ -86,6 +86,18 @@ final class ViewController: UIViewController {
     }
 }
 ```
+Also, by using SPLabel, you can easily implement character substitution during recording. All you need to do is set the text to be displayed during recording in `protectText`.
+```swift
+final class ViewController: UIViewController {
+    @IBOutlet private weak var label: SPLabel!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        label.text = "This is the original text."
+        label.protectText = "Recording is prohibited!!"
+    }
+}
+```
 
 # Settings
 You can temporarily disable this feature. In addition, it returns to the valid state by restarting the app.  
