@@ -173,5 +173,26 @@ final class RxScreenProtectKitTests: XCTestCase {
             .blockingSingle()
         XCTAssertEqual(isRecord, false)
     }
+
+    func testSPImageView() {
+        let view = SPImageView()
+        view.layoutSubviews()
+        XCTAssertEqual(view.image, nil)
+        view.image = UIImage(named: "UserMainPhoto")
+        XCTAssertEqual(view.layer.minificationFilter, .linear)
+        XCTAssertEqual(view.layer.magnificationFilter, .linear)
+        XCTAssertEqual(view.layer.rasterizationScale, 1.0)
+        XCTAssertEqual(view.layer.shouldRasterize, false)
+        XCTAssertEqual(view.image, UIImage(named: "UserMainPhoto"))
+    }
+
+    func testSPLabel() {
+        let label = SPLabel()
+        label.layoutSubviews()
+        XCTAssertEqual(label.text, nil)
+        label.text = "original"
+        label.protectText = "protect"
+        XCTAssertEqual(label.text, "original")
+    }
     // swiftlint:enable force_try
 }
