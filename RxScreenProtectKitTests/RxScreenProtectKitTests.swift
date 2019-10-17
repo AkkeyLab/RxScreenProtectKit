@@ -13,14 +13,14 @@ import XCTest
 final class RxScreenProtectKitTests: XCTestCase {
 
     func testMosaicType() {
-        let type = MosaicType(isValid: true)
+        let type = MosaicType(isValid: true, rasterizationScale: 0.1, pixelBoxSize: 0)
         XCTAssertEqual(type.minificationFilter, .trilinear)
         XCTAssertEqual(type.rasterizationScale, 0.1)
     }
 
     func testValidAttachMosaic() {
         let layer = CALayer()
-        layer.attachMosaic(type: MosaicType(isValid: true))
+        layer.attachMosaic(type: MosaicType(isValid: true, rasterizationScale: 0.1, pixelBoxSize: 0))
         XCTAssertEqual(layer.minificationFilter, .trilinear)
         XCTAssertEqual(layer.magnificationFilter, .nearest)
         XCTAssertEqual(layer.rasterizationScale, 0.1)
@@ -29,7 +29,7 @@ final class RxScreenProtectKitTests: XCTestCase {
 
     func testInvalidAttachMosaic() {
         let layer = CALayer()
-        layer.attachMosaic(type: MosaicType(isValid: false))
+        layer.attachMosaic(type: MosaicType(isValid: false, rasterizationScale: 0.1, pixelBoxSize: 0))
         XCTAssertEqual(layer.minificationFilter, .linear)
         XCTAssertEqual(layer.magnificationFilter, .linear)
         XCTAssertEqual(layer.rasterizationScale, 1.0)
