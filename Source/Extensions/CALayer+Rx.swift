@@ -17,6 +17,7 @@ public extension Reactive where Base: CALayer {
             let kit = ScreenProtectKit.shared
             layer.attachMosaic(type: .init(isValid: isValid,
                                            rasterizationScale: kit.rasterizationScale,
+                                           pixelBoxSize: kit.pixelBoxSize,
                                            minificationFilter: kit.minificationFilter,
                                            magnificationFilter: kit.magnificationFilter)
             )

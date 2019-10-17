@@ -26,16 +26,16 @@ struct MosaicType {
      This type indicates a mosaic.
 
      - parameters:
-     - isValid: This flag indicates the presence or absence of a mosaic.
-     - rasterizationScale: The scale at which to rasterize content, relative to the coordinate space of the layer.
-     - pixelBoxSize: When compressing an image, specify the number of pixels to be compressed to one pixel.
-       If this is non-zero, `rasterizationScale` will be ignored.
-     - minificationFilter: The filter used when reducing the size of the content.
-     - magnificationFilter: The filter used when increasing the size of the content.
+        - isValid: This flag indicates the presence or absence of a mosaic.
+        - rasterizationScale: The scale at which to rasterize content, relative to the coordinate space of the layer.
+        - pixelBoxSize: When compressing an image, specify the number of pixels to be compressed to one pixel.
+          If this is non-zero, `rasterizationScale` will be ignored.
+        - minificationFilter: The filter used when reducing the size of the content.
+        - magnificationFilter: The filter used when increasing the size of the content.
      */
     init (isValid: Bool,
-          rasterizationScale: CGFloat = 0.1,
-          pixelBoxSize: CGFloat = 0,
+          rasterizationScale: CGFloat,
+          pixelBoxSize: CGFloat,
           minificationFilter: CALayerContentsFilter = .trilinear,
           magnificationFilter: CALayerContentsFilter = .nearest) {
         self.isValid = isValid
@@ -70,6 +70,7 @@ extension CALayer {
     public func applyMosaic(kit: ScreenProtectKit = .shared) {
         attachMosaic(type: .init(isValid: shouldRasterize,
                                  rasterizationScale: kit.rasterizationScale,
+                                 pixelBoxSize: kit.pixelBoxSize,
                                  minificationFilter: kit.minificationFilter,
                                  magnificationFilter: kit.magnificationFilter)
         )
