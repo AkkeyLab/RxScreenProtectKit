@@ -646,6 +646,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.akkeylab.lib.RxScreenProtectKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -680,6 +681,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.akkeylab.lib.RxScreenProtectKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -735,6 +737,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.9.0;
 				DEVELOPMENT_TEAM = Y6Y8U7YGDU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -746,6 +749,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.akkeylab.lib.RxScreenProtectKitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -759,6 +763,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.9.0;
 				DEVELOPMENT_TEAM = Y6Y8U7YGDU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -770,6 +775,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.akkeylab.lib.RxScreenProtectKitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
