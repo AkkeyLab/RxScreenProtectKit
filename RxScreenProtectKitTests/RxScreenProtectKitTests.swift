@@ -194,5 +194,17 @@ final class RxScreenProtectKitTests: XCTestCase {
         label.protectText = "protect"
         XCTAssertEqual(label.text, "original")
     }
+
+    func testPixelBoxSize() {
+        let layer = CALayer()
+        layer.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+        layer.attachMosaic(type: MosaicType(isValid: true, rasterizationScale: 0.1, pixelBoxSize: 5))
+        XCTAssertEqual(layer.minificationFilter, .trilinear)
+        XCTAssertEqual(layer.magnificationFilter, .nearest)
+        XCTAssertEqual(layer.rasterizationScale, 0.05)
+        XCTAssertEqual(layer.shouldRasterize, true)
+        layer.attachMosaic(type: MosaicType(isValid: true, rasterizationScale: 0.1, pixelBoxSize: 10))
+        XCTAssertEqual(layer.rasterizationScale, 0.1)
+    }
     // swiftlint:enable force_try
 }
