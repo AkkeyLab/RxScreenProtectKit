@@ -12,6 +12,11 @@ import XCTest
 
 final class RxScreenProtectKitTests: XCTestCase {
 
+    override func setUp() {
+        super.setUp()
+        ScreenProtectKit.shared.config()
+    }
+
     func testMosaicType() {
         let type = MosaicType(isValid: true, rasterizationScale: 0.1, pixelBoxSize: 0)
         XCTAssertEqual(type.minificationFilter, .trilinear)
@@ -196,7 +201,6 @@ final class RxScreenProtectKitTests: XCTestCase {
     }
 
     func testPixelBoxSize() {
-        ScreenProtectKit.shared.config()
         let layer = CALayer()
         layer.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
         layer.attachMosaic(type: MosaicType(isValid: true, rasterizationScale: 0.1, pixelBoxSize: 5))
