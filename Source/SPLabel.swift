@@ -14,16 +14,18 @@ public final class SPLabel: UILabel {
     private var original: String?
     /// Specify the character string to be replaced during recording.
     /// If nothing is specified, `nil` is assigned to `text` when a recording is detected.
-    public var protectText: String?
+    public var protectText: String? {
+        didSet {
+            load.onNext(())
+        }
+    }
     /// The current text that is displayed by the label.
     /// Please note that when recording, a different string will be returned from the original string.
     override public var text: String? {
         set {
             super.text = newValue
             original = newValue
-            if newValue != nil {
-                load.onNext(())
-            }
+            load.onNext(())
         }
         get {
             return super.text
