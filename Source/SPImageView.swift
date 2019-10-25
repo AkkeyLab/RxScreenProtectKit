@@ -24,6 +24,26 @@ public final class SPImageView: UIImageView {
         }
     }
 
+    override public var frame: CGRect {
+        set {
+            super.frame = newValue
+            load.onNext(())
+        }
+        get {
+            return super.frame
+        }
+    }
+
+    override public var bounds: CGRect {
+        set {
+            super.bounds = newValue
+            load.onNext(())
+        }
+        get {
+            return super.bounds
+        }
+    }
+
     override public func layoutSubviews() {
         super.layoutSubviews()
         setup()

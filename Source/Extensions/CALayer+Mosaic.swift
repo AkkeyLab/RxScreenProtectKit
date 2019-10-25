@@ -55,11 +55,8 @@ extension CALayer {
      */
     func attachMosaic(type: MosaicType) {
         let absoluteScale = (2 * type.pixelBoxSize) / (bounds.height + bounds.width)
-        if absoluteScale == 0 || absoluteScale.isNaN {
-            rasterizationScale = type.isValid ? type.rasterizationScale : 1.0
-        } else {
-            rasterizationScale = absoluteScale
-        }
+        let isValidityScale = absoluteScale > 0 && !absoluteScale.isNaN && !absoluteScale.isInfinite
+        rasterizationScale = isValidityScale ? absoluteScale : type.rasterizationScale
         shouldRasterize = type.isValid
         minificationFilter = type.isValid ? type.minificationFilter : .linear
         magnificationFilter = type.isValid ? type.magnificationFilter : .linear
