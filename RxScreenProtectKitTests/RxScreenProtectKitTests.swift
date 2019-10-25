@@ -32,7 +32,7 @@ final class RxScreenProtectKitTests: XCTestCase {
         layer.attachMosaic(type: MosaicType(isValid: false, rasterizationScale: 0.1, pixelBoxSize: 0))
         XCTAssertEqual(layer.minificationFilter, .linear)
         XCTAssertEqual(layer.magnificationFilter, .linear)
-        XCTAssertEqual(layer.rasterizationScale, 1.0)
+        XCTAssertEqual(layer.rasterizationScale, 0.1)
         XCTAssertEqual(layer.shouldRasterize, false)
     }
 
@@ -181,7 +181,7 @@ final class RxScreenProtectKitTests: XCTestCase {
         view.image = UIImage(named: "UserMainPhoto")
         XCTAssertEqual(view.layer.minificationFilter, .linear)
         XCTAssertEqual(view.layer.magnificationFilter, .linear)
-        XCTAssertEqual(view.layer.rasterizationScale, 1.0)
+        XCTAssertEqual(view.layer.rasterizationScale, 0.1)
         XCTAssertEqual(view.layer.shouldRasterize, false)
         XCTAssertEqual(view.image, UIImage(named: "UserMainPhoto"))
     }
@@ -196,6 +196,7 @@ final class RxScreenProtectKitTests: XCTestCase {
     }
 
     func testPixelBoxSize() {
+        ScreenProtectKit.shared.config()
         let layer = CALayer()
         layer.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
         layer.attachMosaic(type: MosaicType(isValid: true, rasterizationScale: 0.1, pixelBoxSize: 5))
@@ -205,6 +206,21 @@ final class RxScreenProtectKitTests: XCTestCase {
         XCTAssertEqual(layer.shouldRasterize, true)
         layer.attachMosaic(type: MosaicType(isValid: true, rasterizationScale: 0.1, pixelBoxSize: 10))
         XCTAssertEqual(layer.rasterizationScale, 0.1)
+    }
+
+    func testResizeSPImageView() {
+        ScreenProtectKit.shared.config(pixelBoxSize: 5, minificationFilter: .trilinear, magnificationFilter: .trilinear)
+        let changeFrameExpectation: XCTestExpectation? = self.expectation(description: "Change frame")
+        let view = SPImageView()
+        view.layoutSubviews()
+        XCTAssertEqual(view.layer.rasterizationScale, 0.1)
+
+        view.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            XCTAssertEqual(view.layer.rasterizationScale, 0.05)
+            changeFrameExpectation?.fulfill()
+        }
+        self.waitForExpectations(timeout: 1, handler: nil)
     }
     // swiftlint:enable force_try
 }
