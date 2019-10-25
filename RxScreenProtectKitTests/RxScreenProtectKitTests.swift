@@ -208,7 +208,7 @@ final class RxScreenProtectKitTests: XCTestCase {
         XCTAssertEqual(layer.rasterizationScale, 0.1)
     }
 
-    func testResizeSPImageView() {
+    func testFrameResizeSPImageView() {
         ScreenProtectKit.shared.config(pixelBoxSize: 5, minificationFilter: .trilinear, magnificationFilter: .trilinear)
         let changeFrameExpectation: XCTestExpectation? = self.expectation(description: "Change frame")
         let view = SPImageView()
@@ -216,6 +216,21 @@ final class RxScreenProtectKitTests: XCTestCase {
         XCTAssertEqual(view.layer.rasterizationScale, 0.1)
 
         view.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            XCTAssertEqual(view.layer.rasterizationScale, 0.05)
+            changeFrameExpectation?.fulfill()
+        }
+        self.waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testBoundsResizeSPImageView() {
+        ScreenProtectKit.shared.config(pixelBoxSize: 5, minificationFilter: .trilinear, magnificationFilter: .trilinear)
+        let changeFrameExpectation: XCTestExpectation? = self.expectation(description: "Change frame")
+        let view = SPImageView()
+        view.layoutSubviews()
+        XCTAssertEqual(view.layer.rasterizationScale, 0.1)
+
+        view.bounds = CGRect(x: 0, y: 0, width: 150, height: 50)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             XCTAssertEqual(view.layer.rasterizationScale, 0.05)
             changeFrameExpectation?.fulfill()
