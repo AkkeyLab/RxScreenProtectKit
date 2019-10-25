@@ -187,12 +187,17 @@ final class RxScreenProtectKitTests: XCTestCase {
     }
 
     func testSPLabel() {
+        let changeTextExpectation: XCTestExpectation? = self.expectation(description: "Change Text")
         let label = SPLabel()
         label.layoutSubviews()
         XCTAssertEqual(label.text, nil)
         label.text = "original"
         label.protectText = "protect"
-        XCTAssertEqual(label.text, "original")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            XCTAssertEqual(label.text, "original")
+            changeTextExpectation?.fulfill()
+        }
+        self.waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testPixelBoxSize() {
