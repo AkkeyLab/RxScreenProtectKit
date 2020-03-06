@@ -112,7 +112,7 @@ ScreenProtectKit
 # Requirements
 |env  |version |
 |---    |---   |
-|Swift  |5.0   |
+|Swift  |5.1   |
 |Xcode  |10.2  |
 |iOS    |11.0  |
 
