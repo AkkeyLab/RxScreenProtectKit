@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'RxScreenProtectKit'
-    s.version          = '0.2.13'
+    s.version          = '0.2.14'
     s.summary          = 'Protect the screen from recording'
 
     s.homepage         = 'https://github.com/AkkeyLab/RxScreenProtectKit'
