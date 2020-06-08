@@ -9,7 +9,7 @@
 import QuartzCore
 import RxCocoa
 import RxSwift
-import Foundation
+import UIKit
 
 public final class ScreenProtectKit {
     public static let shared = ScreenProtectKit()
@@ -33,6 +33,29 @@ public final class ScreenProtectKit {
         get {
             return _isValid.value
         }
+    }
+
+    /**
+     A value that indicates whether the contents of the screen are being cloned to another destination.
+
+     Conditions under which the value flows:
+     - When you subscribe
+     - When the app moves to the background
+     - When the app moves to the foreground
+     - When mirroring starts
+     - When mirroring is completed
+     - When ScreenProtect Kit is disabled
+     - When ScreenProtect Kit is enabled
+     */
+    public var isScreenRecord: Observable<Bool> {
+        return Observable
+            .of(NotificationCenter.default.rx.updateTrigger, isValidState.map { _ in () })
+            .merge()
+            .withLatestFrom(_isValid)
+            .map { isValid in
+                return isValid ? UIScreen.main.isCaptured : false
+            }
+            .share(replay: 1, scope: .forever)
     }
 
     private init() {}

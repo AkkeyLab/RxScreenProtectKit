@@ -49,6 +49,13 @@ final class FirstViewController: UIViewController {
                 ScreenProtectKit.shared.isValid = isValid
             })
             .disposed(by: bag)
+        ScreenProtectKit
+            .shared
+            .isScreenRecord
+            .subscribe(onNext: { isRecord in
+                print(isRecord ? "🔴 Enable Record" : "🔵 Disable Record")
+            })
+            .disposed(by: bag)
 
         changeSettings()
     }
