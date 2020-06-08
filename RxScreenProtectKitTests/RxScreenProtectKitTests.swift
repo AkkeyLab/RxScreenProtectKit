@@ -246,5 +246,41 @@ final class RxScreenProtectKitTests: XCTestCase {
         }
         self.waitForExpectations(timeout: 1, handler: nil)
     }
+
+    func testIsScreenRecordSubscribeFromShared() {
+        let kit = ScreenProtectKit.shared
+
+        let isScreenRecord = try! kit.isScreenRecord
+            .blockingSingle()
+        XCTAssertEqual(isScreenRecord, false)
+    }
+
+    func testIsScreenRecordEnableFromShared() {
+        let kit = ScreenProtectKit.shared
+
+        kit.isValid = false // For distinctUntilChanged()
+        DispatchQueue.main.async {
+            kit.isValid = true
+        }
+
+        let isScreenRecord = try! kit.isScreenRecord
+            .skip(1)
+            .blockingSingle()
+        XCTAssertEqual(isScreenRecord, false)
+    }
+
+    func testIsScreenRecordDisableFromShared() {
+        let kit = ScreenProtectKit.shared
+
+        kit.isValid = true // For distinctUntilChanged()
+        DispatchQueue.main.async {
+            kit.isValid = false
+        }
+
+        let isScreenRecord = try! kit.isScreenRecord
+            .skip(1)
+            .blockingSingle()
+        XCTAssertEqual(isScreenRecord, false)
+    }
     // swiftlint:enable force_try
 }
