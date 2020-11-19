@@ -44,7 +44,7 @@ public final class SPLabel: UILabel {
             )
             .merge()
             .withLatestFrom(self.rx.isScreenRecord)
-            .takeUntil(self.rx.deallocated)
+            .take(until: self.rx.deallocated)
             .subscribe(onNext: { [weak self] isScreenRecord in
                 guard let self = self else { return }
                 self.internalChanges(text: isScreenRecord ? self.protectText : self.original)

@@ -56,7 +56,7 @@ public final class SPImageView: UIImageView {
             )
             .merge()
             .withLatestFrom(self.rx.isScreenRecord)
-            .takeUntil(self.rx.deallocated)
+            .take(until: self.rx.deallocated)
             .bind(to: self.layer.rx.isMosaic)
         return {}
     }()
