@@ -22,13 +22,13 @@ public final class SPLabel: UILabel {
     /// The current text that is displayed by the label.
     /// Please note that when recording, a different string will be returned from the original string.
     override public var text: String? {
+        get {
+            return super.text
+        }
         set {
             super.text = newValue
             original = newValue
             load.onNext(())
-        }
-        get {
-            return super.text
         }
     }
 
