@@ -27,11 +27,11 @@ public final class ScreenProtectKit {
      false will flow once from `isScreenRecord` regardless of whether screen recording is performed.
     */
     public var isValid: Bool {
-        set {
-            _isValid.accept(newValue)
-        }
         get {
             return _isValid.value
+        }
+        set {
+            _isValid.accept(newValue)
         }
     }
 

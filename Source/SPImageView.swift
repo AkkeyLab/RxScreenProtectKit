@@ -13,34 +13,34 @@ public final class SPImageView: UIImageView {
     private var load = PublishSubject<Void>()
 
     override public var image: UIImage? {
+        get {
+            return super.image
+        }
         set {
             super.image = newValue
             if newValue != nil {
                 load.onNext(())
             }
         }
-        get {
-            return super.image
-        }
     }
 
     override public var frame: CGRect {
+        get {
+            return super.frame
+        }
         set {
             super.frame = newValue
             load.onNext(())
         }
-        get {
-            return super.frame
-        }
     }
 
     override public var bounds: CGRect {
+        get {
+            return super.bounds
+        }
         set {
             super.bounds = newValue
             load.onNext(())
-        }
-        get {
-            return super.bounds
         }
     }
 
@@ -56,7 +56,7 @@ public final class SPImageView: UIImageView {
             )
             .merge()
             .withLatestFrom(self.rx.isScreenRecord)
-            .takeUntil(self.rx.deallocated)
+            .take(until: self.rx.deallocated)
             .bind(to: self.layer.rx.isMosaic)
         return {}
     }()
